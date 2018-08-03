@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
       },
 
       password: {
-        type: Datatype.STRING,
+        type: Datatypes.STRING,
         allowNull: false,
         validate: {
           isAlphanumeric: {
@@ -19,17 +19,17 @@ module.exports = function(sequelize, DataTypes) {
       },
 
       img: {
-        type: Datatypr.STRING,
+        type: Datatypes.STRING,
         allowNull: false
       },
 
       license: {
-        type: Datatype.STRING,
+        type: Datatypes.STRING,
         allowNull: true
       },
 
       numberOfJump: {
-        type: Datatype.INTEGER,
+        type: Datatypes.INTEGER,
         validate: {
           isInt: {
             msg: "Number of Jumps must be an integer"
@@ -38,12 +38,12 @@ module.exports = function(sequelize, DataTypes) {
       },
 
       homeDropZone: {
-        type: Datatype.STRING,
+        type: Datatypes.STRING,
         allowNull: true
       },
 
       bio: {
-        type: Datatype.STRING,
+        type: Datatypes.STRING,
         allowNull: true
       }
     }
