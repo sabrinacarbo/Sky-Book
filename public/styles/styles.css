@@ -1,3 +1,11 @@
+body {
+  background:black;
+  background-image: url(../images/background.jpg);
+}
+.jumbotron {
+  background-color: rgba(250, 250, 250, 0.7);
+}
+
 .list-group-item {
   line-height: 2.5;
 }
