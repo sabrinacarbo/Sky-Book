@@ -4,48 +4,57 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       validate: {
         notEmpty: {
+          msg: "Please enter your name"
+        }
+      }
+    },
+
+    userName: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
           msg: "Please enter a user name"
         }
-      },
-
-      password: {
-        type: Datatypes.STRING,
-        allowNull: false,
-        validate: {
-          isAlphanumeric: {
-            msg: "Password only allows numbers and letters"
-          }
-        }
-      },
-
-      img: {
-        type: Datatypes.STRING,
-        allowNull: false
-      },
-
-      license: {
-        type: Datatypes.STRING,
-        allowNull: true
-      },
-
-      numberOfJump: {
-        type: Datatypes.INTEGER,
-        validate: {
-          isInt: {
-            msg: "Number of Jumps must be an integer"
-          }
-        }
-      },
-
-      homeDropZone: {
-        type: Datatypes.STRING,
-        allowNull: true
-      },
-
-      bio: {
-        type: Datatypes.STRING,
-        allowNull: true
       }
+    },
+
+    password: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        isAlphanumeric: {
+          msg: "Password only allows numbers and letters"
+        }
+      }
+    },
+
+    img: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+
+    license: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+
+    numberOfJump: {
+      type: DataTypes.INTEGER,
+      validate: {
+        isInt: {
+          msg: "Number of Jumps must be an integer"
+        }
+      }
+    },
+
+    homeDropZone: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+
+    bio: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   });
 
@@ -53,6 +62,8 @@ module.exports = function(sequelize, DataTypes) {
     User.hasMany(models.Post, {
       onDelete: "cascade"
     });
+
+    User.belongsTo(models.DZ);
   };
 
   return User;
