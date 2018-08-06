@@ -97,3 +97,77 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+//Execution once the page loads
+$(document).ready(function() {
+  //This displays the popup modal for creating an accout
+  // Get the modal
+  var modal = document.getElementById("sign-up-modal");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  };
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+
+  $("#sign-up-link").on("click", function() {
+    modal.style.display = "block";
+  });
+
+  $("#create-account-submit").on("click", function(event) {
+    event.preventDefault();
+
+    //Grab the data from the inputs
+    var username = $("#usernameInput")
+      .val()
+      .trim();
+    console.log("Username is " + username);
+    var password = $("#passwordInput")
+      .val()
+      .trim();
+    console.log("Password is " + password);
+    var passwordCheck = $("#passwordInputCheck")
+      .val()
+      .trim();
+    console.log("Password Check is " + passwordCheck);
+
+    //Initially all fields are assumed to be complete. Then set this variable to false later if a field is found incomplete.
+    var allFieldsComplete = true;
+    var passwordsMatch = password === passwordCheck;
+    console.log("Do the passwords match?");
+    console.log(passwordsMatch);
+
+    if (username === "" || password === "" || passwordCheck === "") {
+      allFieldsComplete = false;
+    }
+
+    if (allFieldsComplete && passwordsMatch) {
+      //Create a new object for the user's responses
+      var newUser = {
+        username: username,
+        password: password
+      };
+
+      console.log(newUser);
+
+      $.post("/api/users", newUser, function(data) {
+        console.log(data);
+      });
+    } else if (allFieldsComplete === false) {
+      alert("Please complete all fields before submitting!");
+    } else if (passwordsMatch === false) {
+      alert("The two password inputs do not match!");
+      $("#passwordInput").val("");
+      $("#passwordInputCheck").val("");
+    }
+  });
+});
