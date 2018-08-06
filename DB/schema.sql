@@ -1,0 +1,3 @@
+-- DROP DATABASE IF EXISTS SkyBook_db;
+CREATE DATABASE SkyBook_db;
+
