@@ -1,3 +1,4 @@
+
 INSERT INTO Users (name, username, password, img, license, numberOfJump, homeDropZone, bio) VALUES ("Sabrina Carbo", "baby", "1234", "photo.jpg", "B", 185, "Skydive Atlanta", "I like to skydive!");
 INSERT INTO Users (name, username, password, img, license, numberOfJump, homeDropZone, bio) VALUES ("Hank Zimmer", "hit", "1234", "photo.jpg", "A", 50, "Skydive Atlanta", "I like to skydive!");
 INSERT INTO Users (name, username, password, img, license, numberOfJump, homeDropZone, bio) VALUES ("Ryan Arasi", "me", "1234", "photo.jpg", "Student", 9, "Skydive Atlanta", "I like to skydive!");
@@ -12,6 +13,7 @@ INSERT INTO DZs (name, address, city, state, zip, telephone, website) VALUES ("S
 INSERT INTO DZs (name, address, city, state, zip, telephone, website) VALUES ("Skydive Sebastian", "400 Airport Dr W", "Sebastian", "FL", 32958, "772-388-5672", "http://www.skydiveseb.com/");
 INSERT INTO DZs (name, address, city, state, zip, telephone, website) VALUES ("Skydive Fitzgerald", "168 Paulk Park Rd", "Fitzgerald", "GA", 31750, "478-227-9445", "http://skydivefitzgerald.com/");
 INSERT INTO DZs (name, address, city, state, zip, telephone, website) VALUES ("Skydive City/Z-Hills", "4241 Sky Dive Ln", "Zephyrhills", "FL", 33542, "813-783-9399", "https://www.skydivecity.com/");
+
 
 
 INSERT INTO Boogies (name, DZ, beginDate, endDate) VALUES ("Space Invasion", "Skydive Sebastian", 20181227, 20190101);
