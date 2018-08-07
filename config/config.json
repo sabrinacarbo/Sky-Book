@@ -10,7 +10,7 @@
   "test": {
     "username": "root",
     "password": "root",
-    "database": "SkyBook_db",
+    "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false,

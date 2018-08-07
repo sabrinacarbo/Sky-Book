@@ -5,12 +5,12 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     address: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false
     },
     addressTwo: {
-      type: DataTypes.TEXT,
-      allowNull: false
+      type: DataTypes.STRING,
+      allowNull: true
     },
 
     city: {
@@ -29,12 +29,12 @@ module.exports = function(sequelize, DataTypes) {
     },
 
     telephone: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false
     },
 
     website: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false
     },
 

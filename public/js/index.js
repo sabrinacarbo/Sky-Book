@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   //This displays the popup modal for creating an accout
   // Get the modal
@@ -52,7 +53,7 @@ $(document).ready(function() {
     if (allFieldsComplete && passwordsMatch) {
       //Create a new object for the user's responses
       var newUser = {
-        username: username,
+        userName: username,
         password: password
       };
 
