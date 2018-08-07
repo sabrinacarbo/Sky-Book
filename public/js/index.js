@@ -22,7 +22,7 @@ var API = {
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteUser: function(id) {
     return $.ajax({
       url: "api/examples/" + id,
       type: "DELETE"
@@ -153,7 +153,7 @@ $(document).ready(function() {
     if (allFieldsComplete && passwordsMatch) {
       //Create a new object for the user's responses
       var newUser = {
-        username: username,
+        userName: username,
         password: password
       };
 
