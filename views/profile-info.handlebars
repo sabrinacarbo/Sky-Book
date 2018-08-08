@@ -1,4 +1,4 @@
-<nav class="navbar navbar-lg navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-lg navbar-expand-sm navbar-light bg-light">
     <a class="navbar-brand" href="/">SkyBook</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -9,6 +9,17 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link" href="/posts">View Posts</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropzonesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Drop Zones
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {{#each DZs}}
+                    <a target="_blank" class="dropdown-item" href={{website}}>{{name}}</a>
+                    {{/each}}
+                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/">Logout</a>
@@ -35,33 +46,4 @@
             </div>
         </div>
     </div>
-</div>
-
-<!-- Edit Account Modal -->
-<div id="edit-account-modal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Update your account:</h2>
-    <div class="row">
-      <div class="col">
-        <form>
-          <div class="form-group">
-            <label for="usernameInput">Update username:</label>
-            <input type="username" class="form-control" id="usernameInput" placeholder="Enter your username here">
-          </div>
-          <div class="form-group">
-            <label for="passwordInput">Update your password:</label>
-            <input type="password" class="form-control" id="passwordInput" placeholder="Type your password here">
-          </div>
-          <div class="form-group">
-            <label for="passwordInputCheck">Type your password again:</label>
-            <input type="password" class="form-control" id="passwordInputCheck" placeholder="Type your password here again">
-          </div>
-          <button id="create-account-submit" type="submit" class="btn btn-primary">Create my account</button>
-        </form>
-      </div>
-    </div>
-  </div>
 </div>

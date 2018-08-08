@@ -5,7 +5,14 @@ var router = express.Router();
 
 // Load index page
 router.get("/", function(req, res) {
-  res.render("index");
+  db.DZ.findAll().then(function(DZs) {
+    db.Boogie.findAll().then(function(boogies) {
+      res.render("index", {
+        DZs: DZs,
+        boogies: boogies
+      });
+    });
+  });
 });
 
 // Load posts page
@@ -17,20 +24,31 @@ router.get("/posts", function(req, res) {
   });
 });
 
+router.get("/faq", function(req, res) {
+  db.FAQs.findAll().then(function(allFAQs) {
+    res.render("faq", {
+      allFAQs: allFAQs
+    });
+  });
+});
+
 router.get("/profile/:id", function(req, res) {
   console.log("/profile/" + req.params.id);
-  db.User.findOne({
-    where: {
-      id: req.params.id
-    }
-  }).then(function(dbUser) {
-    res.render("profile-info", {
-      name: dbUser.name,
-      img: dbUser.img,
-      license: dbUser.license,
-      numberOfJump: dbUser.numberOfJump,
-      homeDropZone: dbUser.homeDropZone,
-      bio: dbUser.bio
+  db.DZ.findAll().then(function(DZs) {
+    db.User.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbUser) {
+      res.render("profile-info", {
+        name: dbUser.name,
+        img: dbUser.img,
+        license: dbUser.license,
+        numberOfJump: dbUser.numberOfJump,
+        homeDropZone: dbUser.homeDropZone,
+        bio: dbUser.bio,
+        DZs: DZs
+      });
     });
   });
 });
