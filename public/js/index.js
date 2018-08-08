@@ -1,11 +1,10 @@
-
 $(document).ready(function() {
-  //This displays the popup modal for creating an accout
+  //This displays the popup modal for creating an account
   // Get the modal
   var modal = document.getElementById("sign-up-modal");
 
   // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close")[0];
+  var span = document.getElementsByClassName("close");
 
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
@@ -19,10 +18,12 @@ $(document).ready(function() {
     }
   };
 
+  //User signs up on click event
   $("#sign-up-link").on("click", function() {
     modal.style.display = "block";
   });
 
+  //User created on click event
   $("#create-account-submit").on("click", function(event) {
     event.preventDefault();
 
@@ -54,7 +55,8 @@ $(document).ready(function() {
       //Create a new object for the user's responses
       var newUser = {
         userName: username,
-        password: password
+        password: password,
+        id: id
       };
 
       console.log(newUser);
@@ -71,6 +73,7 @@ $(document).ready(function() {
     }
   });
 
+  //User on click login function
   $("#login").on("click", function(event) {
     event.preventDefault();
     login.userInput.username = $("#username")
@@ -91,22 +94,23 @@ $(document).ready(function() {
     checkLoginPassword: function() {
       var ifMatch = false;
       $.get("/api/users", function(data) {
-        console.log(login.userInput);
+        //console.log(login.userInput);
         for (var i = 0; i < data.length; i++) {
           if (data[i].userName === login.userInput.username) {
             if (data[i].password === login.userInput.password) {
               ifMatch = true;
+              userId = data[i].id;
             }
           }
         }
         if (ifMatch) {
-          goToUserProfile();
+          goToUserProfile(userId);
         }
       });
     }
   };
 
-  var goToUserProfile = function() {
-    window.location.href = "/profile";
+  var goToUserProfile = function(userId) {
+    window.location.href = "/profile/" + userId;
   };
 });
