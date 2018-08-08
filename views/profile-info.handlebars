@@ -1,0 +1,35 @@
+<nav class="navbar navbar-lg navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">skybook</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col">
+                <h2 id="profile-name"> {{name}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <img src="../images/{{img}}" class="img-fluid" alt="Profile Picture">
+            </div>
+            <div class="col-sm">
+                <p>License: {{license}}</p>
+                <p>Jumps: {{numberOfJump}}</p>
+                <p>Home DZ: {{homeDropZone}}</p>
+                <p>Bio: {{bio}}</p>
+            </div>
+        </div>
+    </div>
+</div>
