@@ -88,7 +88,13 @@ $(document).ready(function() {
   var login = {
     userInput: {
       username: "",
-      password: ""
+      password: "",
+      name: "",
+      img: "",
+      license: "",
+      numberOfJump: "",
+      homeDropZone: "",
+      bio: ""
     },
 
     checkLoginPassword: function() {
