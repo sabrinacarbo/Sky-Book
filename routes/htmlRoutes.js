@@ -8,6 +8,9 @@ router.get("/", function(req, res) {
   res.render("index");
 });
 
+router.get("/faq", function(req, res) {
+  res.render("faq");
+});
 // Load profile page and pass in a user by id
 // Need to modify this to query to database for the info, and use a variable in the url for the username
 // app.get("/profile/hank", function(req, res) {
