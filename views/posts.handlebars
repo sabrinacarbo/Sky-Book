@@ -17,18 +17,23 @@
     <div class="jumbotron">
         <div class="row">
             <div class="col">
-                <h2 id="profile-name"> {{name}}</h2>
+                <h1> Posts</h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm">
-                <img src={{img}} class="img-fluid" alt="Profile Picture">
-            </div>
-            <div class="col-sm">
-                <p>License: {{license}}</p>
-                <p>Jumps: {{numberOfJump}}</p>
-                <p>Home DZ: {{homeDropZone}}</p>
-                <p>Bio: {{bio}}</p>
+            <div class="col">
+                {{#each allPosts}}
+                <div class="card">
+                    <div class="card-header">
+                        (author will go here){{author}}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{dataValues.title}}</h5>
+                        <p class="card-text">{{dataValues.body}}</p>
+                    </div>
+                </div>
+                <hr>
+                {{/each}}
             </div>
         </div>
     </div>
