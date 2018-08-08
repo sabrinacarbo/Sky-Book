@@ -24,6 +24,14 @@ router.get("/posts", function(req, res) {
   });
 });
 
+router.get("/faq", function(req, res) {
+  db.FAQs.findAll().then(function(allFAQs) {
+    res.render("faq", {
+      allFAQs: allFAQs
+    });
+  });
+});
+
 router.get("/profile/:id", function(req, res) {
   console.log("/profile/" + req.params.id);
   db.DZ.findAll().then(function(DZs) {
