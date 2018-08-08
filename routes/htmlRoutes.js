@@ -10,10 +10,11 @@ router.get("/", function(req, res) {
 
 // Load posts page
 router.get("/posts", function(req, res) {
-  db.Post.findAll().then(function (allPosts) {
-    console.log(allPosts);
-    console.log()
-    res.render("posts", { allPosts });
+  db.Post.findAll().then(function(allPosts) {
+    res.render("posts", {
+      title: allPosts.title,
+      body: allPosts.body
+    });
   });
 });
 
