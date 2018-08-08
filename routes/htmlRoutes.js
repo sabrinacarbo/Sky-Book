@@ -11,9 +11,10 @@ router.get("/", function(req, res) {
 // Load posts page
 router.get("/posts", function(req, res) {
   db.Post.findAll().then(function(allPosts) {
+    console.log("allposts.title: " + allPosts.title);
+    console.log(allPosts);
     res.render("posts", {
-      title: allPosts.title,
-      body: allPosts.body
+      allPosts: allPosts
     });
   });
 });
