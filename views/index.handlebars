@@ -12,8 +12,8 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="username" placeholder="username" aria-label="username" id = "username">
-      <input class="form-control mr-sm-2" type="password" placeholder="password" aria-label="password" id = "password">
+      <input class="form-control mr-sm-2" type="username" placeholder="username" aria-label="username" id="username">
+      <input class="form-control mr-sm-2" type="password" placeholder="password" aria-label="password" id="password">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="login">Login</button>
     </form>
   </div>
@@ -71,24 +71,28 @@
             <input type="password" class="form-control" id="passwordInputCheck" placeholder="Type your password here again">
           </div>
           <div class="form-group">
-            <label for="passwordInputCheck">Enter a link to your profile image</label>
-            <input type="password" class="form-control" id="imageInput" placeholder="Enter your image url here">
+            <label for="nameInput">Enter your Name:</label>
+            <input type="name" class="form-control" id="nameInput" placeholder="Enter your name here">
           </div>
           <div class="form-group">
-            <label for="passwordInputCheck">What skydiving license do you have?</label>
-            <input type="password" class="form-control" id="passwordInputCheck" placeholder="Enter your license here">
+            <label for="imageInput">Enter a link to your profile image</label>
+            <input type="link" class="form-control" id="imageInput" placeholder="Enter your image url here">
           </div>
           <div class="form-group">
-            <label for="passwordInputCheck">How many jumps have you done?</label>
-            <input type="password" class="form-control" id="passwordInputCheck" placeholder="Enter your number of jumps here">
+            <label for="licenseInput">What skydiving license do you have?</label>
+            <input type="license" class="form-control" id="licenseInput" placeholder="Enter your license here">
           </div>
           <div class="form-group">
-            <label for="passwordInputCheck">What is oyur home drop zone?</label>
-            <input type="password" class="form-control" id="passwordInputCheck" placeholder="Enter your home drop zone here">
+            <label for="jumpsInput">How many jumps have you done?</label>
+            <input type="number" class="form-control" id="jumpsInput" placeholder="Enter your number of jumps here">
           </div>
           <div class="form-group">
-            <label for="passwordInputCheck">Enter your bio</label>
-            <input type="password" class="form-control" id="passwordInputCheck" placeholder="Enter your bio here">
+            <label for="dropzoneInput">What is your home drop zone?</label>
+            <input type="location" class="form-control" id="dropzoneInput" placeholder="Enter your home drop zone here">
+          </div>
+          <div class="form-group">
+            <label for="bioInput">Enter your bio</label>
+            <input type="text" class="form-control" id="bioInput" placeholder="Enter your bio here">
           </div>
           <button id="create-account-submit" type="submit" class="btn btn-primary">Create my account</button>
         </form>
