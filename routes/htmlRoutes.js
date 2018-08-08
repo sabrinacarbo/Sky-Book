@@ -4,42 +4,46 @@ var express = require("express");
 var router = express.Router();
 
 // Load index page
-router.get("/", function(req, res) {
-  res.render("index");
+router.get("/", function (req, res) {
+  db.DZ.findAll().then(function (DZs) {
+    res.render("index", {
+      DZs: DZs
+    });
+  });
 });
 
-<<<<<<< HEAD
-=======
 // Load posts page
-router.get("/posts", function(req, res) {
-  db.Post.findAll().then(function(allPosts) {
+router.get("/posts", function (req, res) {
+  db.Post.findAll().then(function (allPosts) {
     res.render("posts", {
       allPosts: allPosts
     });
   });
 });
 
->>>>>>> e313f6a239a30787cbc3188bbbe261e651563d04
-router.get("/profile/:id", function(req, res) {
+router.get("/profile/:id", function (req, res) {
   console.log("/profile/" + req.params.id);
-  db.User.findOne({
-    where: {
-      id: req.params.id
-    }
-  }).then(function(dbUser) {
-    res.render("profile-info", {
-      name: dbUser.name,
-      img: dbUser.img,
-      license: dbUser.license,
-      numberOfJump: dbUser.numberOfJump,
-      homeDropZone: dbUser.homeDropZone,
-      bio: dbUser.bio
+  db.DZ.findAll().then(function (DZs) {
+    db.User.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function (dbUser) {
+      res.render("profile-info", {
+        name: dbUser.name,
+        img: dbUser.img,
+        license: dbUser.license,
+        numberOfJump: dbUser.numberOfJump,
+        homeDropZone: dbUser.homeDropZone,
+        bio: dbUser.bio,
+        DZs: DZs
+      });
     });
   });
 });
 
 // Render 404 page for any unmatched routes
-router.get("*", function(req, res) {
+router.get("*", function (req, res) {
   res.render("404");
 });
 

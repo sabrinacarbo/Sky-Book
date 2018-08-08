@@ -1,4 +1,4 @@
-<nav class="navbar navbar-lg navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-lg navbar-expand-sm navbar-light bg-light">
     <a class="navbar-brand" href="/">SkyBook</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -9,6 +9,17 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link" href="/posts">View Posts</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropzonesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Drop Zones
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {{#each DZs}}
+                    <a target="_blank" class="dropdown-item" href={{website}}>{{name}}</a>
+                    {{/each}}
+                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/">Logout</a>

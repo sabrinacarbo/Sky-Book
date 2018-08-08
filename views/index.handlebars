@@ -10,10 +10,21 @@
       <li class="nav-item">
         <a id="sign-up-link" class="nav-link" href="#">Sign Up</a>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropzonesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Drop Zones
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          {{#each DZs}}
+          <a target="_blank" class="dropdown-item" href={{website}}>{{name}}</a>
+          {{/each}}
+        </div>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="username" placeholder="username" aria-label="username" id = "username">
-      <input class="form-control mr-sm-2" type="password" placeholder="password" aria-label="password" id = "password">
+      <input class="form-control mr-sm-2" type="username" placeholder="username" aria-label="username" id="username">
+      <input class="form-control mr-sm-2" type="password" placeholder="password" aria-label="password" id="password">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="login">Login</button>
     </form>
   </div>
@@ -46,15 +57,23 @@
       </div>
     </div>
     <hr>
-    {{#each dropzone}}
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">{{name}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p></p>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <p>{{telephone}}</p>
-        <a href="#" class="card-link">{{website}}</a>
+    <div class="row">
+      <div class="col">
+
+        <h2>Drop Zones</h2>
+      </div>
+    </div>
+    <div class="row">
+      {{#each DZs}}
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p>{{address}}, {{city}}, {{state}}</p>
+            <p>{{telephone}}</p>
+            <a href="#" class="card-link">{{website}}</a>
+          </div>
+        </div>
       </div>
       {{/each}}
     </div>
