@@ -39,6 +39,24 @@ $(document).ready(function() {
     var passwordCheck = $("#passwordInputCheck")
       .val()
       .trim();
+    var name = $("#nameInput")
+      .val()
+      .trim();
+    var img = $("#imageInput")
+      .val()
+      .trim();
+    var license = $("#licenseInput")
+      .val()
+      .trim();
+    var numberOfJump = $("#jumpsInput")
+      .val()
+      .trim();
+    var homeDropZone = $("#dropzoneInput")
+      .val()
+      .trim();
+    var bio = $("#bioInput")
+      .val()
+      .trim();
     console.log("Password Check is " + passwordCheck);
 
     //Initially all fields are assumed to be complete. Then set this variable to false later if a field is found incomplete.
@@ -56,7 +74,6 @@ $(document).ready(function() {
       var newUser = {
         userName: username,
         password: password,
-        id: id,
         name: name,
         img: img,
         license: license,
@@ -69,6 +86,8 @@ $(document).ready(function() {
 
       $.post("/api/users", newUser, function(data) {
         console.log(data);
+      }).then(function(data) {
+        goToUserProfile(data.id);
       });
     } else if (allFieldsComplete === false) {
       alert("Please complete all fields before submitting!");
