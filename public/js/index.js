@@ -86,9 +86,9 @@ $(document).ready(function() {
 
       $.post("/api/users", newUser, function(data) {
         console.log(data);
-      }).then(function () {
+      }).then(function() {
         goToUserProfile(1);
-      })
+      });
     } else if (allFieldsComplete === false) {
       alert("Please complete all fields before submitting!");
     } else if (passwordsMatch === false) {
