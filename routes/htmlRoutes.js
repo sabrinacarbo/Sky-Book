@@ -8,19 +8,6 @@ router.get("/", function(req, res) {
   res.render("index");
 });
 
-// Load profile page and pass in a user by id
-// Need to modify this to query to database for the info, and use a variable in the url for the username
-// app.get("/profile/hank", function(req, res) {
-//   res.render("profile-info", {
-//     name: "Hank",
-//     img: "https://hankzimmer7.github.io/assets/images/profile_picture.jpg",
-//     license: "none",
-//     numberOfJump: 0,
-//     homeDropZone: "ATL",
-//     bio: "I love the sky, but I can't jump"
-//   });
-// });
-
 router.get("/profile/:id", function(req, res) {
   console.log("/profile/" + req.params.id);
   db.User.findOne({
