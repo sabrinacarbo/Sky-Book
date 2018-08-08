@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   //This displays the popup modal for creating an account
   // Get the modal
   var modal = document.getElementById("sign-up-modal");
@@ -7,24 +7,24 @@ $(document).ready(function () {
   var span = document.getElementsByClassName("close");
 
   // When the user clicks on <span> (x), close the modal
-  span.onclick = function () {
+  span.onclick = function() {
     modal.style.display = "none";
   };
 
   // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function (event) {
+  window.onclick = function(event) {
     if (event.target === modal) {
       modal.style.display = "none";
     }
   };
 
   //User signs up on click event
-  $("#sign-up-link").on("click", function () {
+  $("#sign-up-link").on("click", function() {
     modal.style.display = "block";
   });
 
   //User created on click event
-  $("#create-account-submit").on("click", function (event) {
+  $("#create-account-submit").on("click", function(event) {
     event.preventDefault();
 
     //Grab the data from the inputs
@@ -84,9 +84,9 @@ $(document).ready(function () {
 
       console.log(newUser);
 
-      $.post("/api/users", newUser, function (data) {
+      $.post("/api/users", newUser, function(data) {
         console.log(data);
-      }).then(function (data) {
+      }).then(function(data) {
         goToUserProfile(data.id);
       });
     } else if (allFieldsComplete === false) {
@@ -99,7 +99,7 @@ $(document).ready(function () {
   });
 
   //User on click login function
-  $("#login").on("click", function (event) {
+  $("#login").on("click", function(event) {
     event.preventDefault();
     login.userInput.username = $("#username")
       .val()
@@ -116,9 +116,9 @@ $(document).ready(function () {
       password: ""
     },
 
-    checkLoginPassword: function () {
+    checkLoginPassword: function() {
       var ifMatch = false;
-      $.get("/api/users", function (data) {
+      $.get("/api/users", function(data) {
         //console.log(login.userInput);
         for (var i = 0; i < data.length; i++) {
           if (data[i].userName === login.userInput.username) {
@@ -135,7 +135,7 @@ $(document).ready(function () {
     }
   };
 
-  var goToUserProfile = function (userId) {
+  var goToUserProfile = function(userId) {
     window.location.href = "/profile/" + userId;
   };
 });
