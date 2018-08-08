@@ -1,0 +1,40 @@
+<nav class="navbar navbar-lg navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">SkyBook</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col">
+                <h1> Posts</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{#each allPosts}}
+                <div class="card">
+                    <div class="card-header">
+                        (author will go here){{author}}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{title}}</h5>
+                        <p class="card-text">{{body}}</p>
+                    </div>
+                </div>
+                <hr>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

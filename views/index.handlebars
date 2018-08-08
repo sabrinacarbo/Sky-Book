@@ -1,5 +1,5 @@
 <nav class="navbar navbar-lg navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">skybook</a>
+  <a class="navbar-brand" href="/">SkyBook</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -8,16 +8,27 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a id="sign-up-link" class="nav-link" href="#">sign up</a>
+        <a id="sign-up-link" class="nav-link" href="#">Sign Up</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropzonesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Drop Zones
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          {{#each DZs}}
+          <a target="_blank" class="dropdown-item" href={{website}}>{{name}}</a>
+          {{/each}}
+        </div>
       </li>
       <li class="nav-item">
         <a id="faq-link" class="nav-link" href="/faq">faq</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="username" placeholder="username" aria-label="username">
-      <input class="form-control mr-sm-2" type="password" placeholder="password" aria-label="password">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">login</button>
+      <input class="form-control mr-sm-2" type="username" placeholder="username" aria-label="username" id="username">
+      <input class="form-control mr-sm-2" type="password" placeholder="password" aria-label="password" id="password">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="login">Login</button>
     </form>
   </div>
 </nav>
@@ -47,6 +58,48 @@
           </a>
         </div>
       </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col">
+        <h2>Drop Zones</h2>
+      </div>
+    </div>
+    <div class="row">
+      {{#each DZs}}
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p>{{address}}, {{city}}, {{state}}</p>
+            <p>{{telephone}}</p>
+            <a href="#" class="card-link">{{website}}</a>
+            {{#each boogies}} {{name}} {{/each}}
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    <div class="row">
+      <div class="col">
+        <h2>Boogies</h2>
+      </div>
+    </div>
+    <div class="row">
+      {{#each boogies}}
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p>Drop Zone: {{DZ}}</p>
+            <p>Start:</p>
+            <p>{{beginDate}}</p>
+            <p>End:</p>
+            <p>{{endDate}}</p>
+          </div>
+        </div>
+      </div>
+      {{/each}}
     </div>
   </div>
 </div>
