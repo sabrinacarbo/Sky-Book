@@ -59,7 +59,6 @@
     <hr>
     <div class="row">
       <div class="col">
-
         <h2>Drop Zones</h2>
       </div>
     </div>
@@ -72,6 +71,28 @@
             <p>{{address}}, {{city}}, {{state}}</p>
             <p>{{telephone}}</p>
             <a href="#" class="card-link">{{website}}</a>
+            {{#each boogies}} {{name}} {{/each}}
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    <div class="row">
+      <div class="col">
+        <h2>Boogies</h2>
+      </div>
+    </div>
+    <div class="row">
+      {{#each boogies}}
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p>Drop Zone: {{DZ}}</p>
+            <p>Start:</p>
+            <p>{{beginDate}}</p>
+            <p>End:</p>
+            <p>{{endDate}}</p>
           </div>
         </div>
       </div>
