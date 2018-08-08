@@ -56,7 +56,13 @@ $(document).ready(function() {
       var newUser = {
         userName: username,
         password: password,
-        id: id
+        id: id,
+        name: name,
+        img: img,
+        license: license,
+        numberOfJump: numberOfJump,
+        homeDropZone: homeDropZone,
+        bio: bio
       };
 
       console.log(newUser);
@@ -88,13 +94,7 @@ $(document).ready(function() {
   var login = {
     userInput: {
       username: "",
-      password: "",
-      name: "",
-      img: "",
-      license: "",
-      numberOfJump: "",
-      homeDropZone: "",
-      bio: ""
+      password: ""
     },
 
     checkLoginPassword: function() {
