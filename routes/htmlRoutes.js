@@ -23,7 +23,7 @@ router.get("/profile/:id", function(req, res) {
     where: {
       id: req.params.id
     }
-  }).then(function (dbUser) {
+  }).then(function(dbUser) {
     res.render("profile-info", {
       name: dbUser.name,
       img: dbUser.img,
