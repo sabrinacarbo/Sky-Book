@@ -30,8 +30,8 @@ router.get("/faq", function(req, res) {
       allFAQs: allFAQs
     });
   });
- });
- 
+});
+
 router.get("/profile/:id", function(req, res) {
   console.log("/profile/" + req.params.id);
   db.DZ.findAll().then(function(DZs) {
