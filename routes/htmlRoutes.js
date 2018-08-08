@@ -8,6 +8,18 @@ router.get("/", function(req, res) {
   res.render("index");
 });
 
+<<<<<<< HEAD
+=======
+// Load posts page
+router.get("/posts", function(req, res) {
+  db.Post.findAll().then(function(allPosts) {
+    res.render("posts", {
+      allPosts: allPosts
+    });
+  });
+});
+
+>>>>>>> e313f6a239a30787cbc3188bbbe261e651563d04
 router.get("/profile/:id", function(req, res) {
   console.log("/profile/" + req.params.id);
   db.User.findOne({
