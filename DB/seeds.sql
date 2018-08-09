@@ -1,10 +1,10 @@
 
-INSERT INTO Users (name, username, password, img, license, numberOfJump, homeDropZone, bio) VALUES ("Sabrina Carbo", "baby", "1234", "photo.jpg", "B", 185, "Skydive Atlanta", "I like to skydive!");
-INSERT INTO Users (name, username, password, img, license, numberOfJump, homeDropZone, bio) VALUES ("Hank Zimmer", "hit", "1234", "photo.jpg", "A", 50, "Skydive Atlanta", "I like to skydive!");
-INSERT INTO Users (name, username, password, img, license, numberOfJump, homeDropZone, bio) VALUES ("Ryan Arasi", "me", "1234", "photo.jpg", "Student", 9, "Skydive Atlanta", "I like to skydive!");
-INSERT INTO Users (name, username, password, img, license, numberOfJump, homeDropZone, bio) VALUES ("Ruohan Zhang", "one", "1234", "photo.jpg", "A", 35, "Skydive Atlanta", "I like to skydive!");
-INSERT INTO Users (name, username, password, img, license, numberOfJump, homeDropZone, bio) VALUES ("Camille Sierra", "more", "1234", "photo.jpg", "Student", 7, "Skydive Atlanta", "I like to skydive!");
-INSERT INTO Users (name, username, password, img, license, numberOfJump, homeDropZone, bio) VALUES ("Jacob Lamont", "time", "1234", "photo.jpg", "C", 250, "Skydive Atlanta", "I like to skydive!");
+INSERT INTO Users (name, username, password, img, license, numberOfJump, homeDropZone, bio) VALUES ("Sabrina Carbo", "sabrina", "1234", "../images/sabrina.jpg", "B", 185, "Skydive Atlanta", "I like to skydive!");
+INSERT INTO Users (name, username, password, img, license, numberOfJump, homeDropZone, bio) VALUES ("Hank Zimmer", "hank", "1234", "https://media.licdn.com/dms/image/C4D03AQFzrAE-1zU8dg/profile-displayphoto-shrink_200_200/0?e=1539216000&v=beta&t=9oyJOdyENY-J5N00Z4Q_u_xlWxtFNmzKrxBCl6xMUEY", "A", 50, "Skydive Atlanta", "I like to skydive!");
+INSERT INTO Users (name, username, password, img, license, numberOfJump, homeDropZone, bio) VALUES ("Ryan Arasi", "ryan", "1234", "../images/ryan.jpg", "A", 9, "Skydive Atlanta", "I like to skydive!");
+INSERT INTO Users (name, username, password, img, license, numberOfJump, homeDropZone, bio) VALUES ("Ruohan Zhang", "ruohan", "1234", "../images/ruohan.jpg", "A", 35, "Skydive Atlanta", "I like to skydive!");
+INSERT INTO Users (name, username, password, img, license, numberOfJump, homeDropZone, bio) VALUES ("Camille Sierra", "camille", "1234", "../images/camille.jpg", "Student", 7, "Skydive Atlanta", "I like to skydive!");
+INSERT INTO Users (name, username, password, img, license, numberOfJump, homeDropZone, bio) VALUES ("Jacob Lamont", "jacob", "1234", "../images/jacob.jpg", "C", 250, "Skydive Atlanta", "I like to skydive!");
 
 
 INSERT INTO DZs (name, address, city, state, zip, telephone, website) VALUES ("Skydive Atlanta", "2333 Delray Rd", "Thomaston", "GA", 30286, "706-647-9701", "http://www.skydiveatlanta.com/");
