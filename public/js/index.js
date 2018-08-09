@@ -64,6 +64,7 @@ $(document).ready(function() {
     var passwordsMatch = password === passwordCheck;
     console.log("Do the passwords match?");
     console.log(passwordsMatch);
+    console.log(homeDropZone);
 
     if (username === "" || password === "" || passwordCheck === "") {
       allFieldsComplete = false;
@@ -101,39 +102,22 @@ $(document).ready(function() {
   //User on click login function
   $("#login").on("click", function(event) {
     event.preventDefault();
-    login.userInput.username = $("#username")
-      .val()
-      .trim();
-    login.userInput.password = $("#password")
-      .val()
-      .trim();
-    login.checkLoginPassword();
+    var userInput = {
+      userName: $("#username")
+        .val()
+        .trim(),
+      password: $("#password")
+        .val()
+        .trim()
+    };
+    $.post("/api/login", userInput, function(data) {
+      if (data !== -1) {
+        goToUserProfile(data);
+      } else {
+        alert("Please type in the correct username and password");
+      }
+    });
   });
-
-  var login = {
-    userInput: {
-      username: "",
-      password: ""
-    },
-
-    checkLoginPassword: function() {
-      var ifMatch = false;
-      $.get("/api/users", function(data) {
-        //console.log(login.userInput);
-        for (var i = 0; i < data.length; i++) {
-          if (data[i].userName === login.userInput.username) {
-            if (data[i].password === login.userInput.password) {
-              ifMatch = true;
-              userId = data[i].id;
-            }
-          }
-        }
-        if (ifMatch) {
-          goToUserProfile(userId);
-        }
-      });
-    }
-  };
 
   var goToUserProfile = function(userId) {
     window.location.href = "/profile/" + userId;

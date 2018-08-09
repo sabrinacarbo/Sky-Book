@@ -14,13 +14,13 @@ module.exports = function(sequelize, DataTypes) {
     },
 
     endDate: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false
     },
 
     createdAt: {
       allowNull: false,
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       defaultValue: sequelize.literal("CURRENT_TIMESTAMP")
     }
   });
