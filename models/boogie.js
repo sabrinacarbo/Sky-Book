@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     beginDate: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false
     },
 
@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
 
     createdAt: {
       allowNull: false,
-      type: DataTypes.DATEONLY,
+      type: DataTypes.DATE,
       defaultValue: sequelize.literal("CURRENT_TIMESTAMP")
     }
   });
