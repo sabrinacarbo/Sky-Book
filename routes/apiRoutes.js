@@ -10,19 +10,29 @@ module.exports = function(app) {
     });
   });
 
+  app.post("/api/login", function(req, res) {
+    console.log(req.body);
+    db.User.findAll({
+      include: [db.DZ]
+    }).then(function(dbUser) {
+      for (var i = 0; i < dbUser.length; i++) {
+        if (dbUser[i].userName === req.body.userName) {
+          if (dbUser[i].password === req.body.password) {
+            var userId = dbUser[i].id;
+          } else {
+            userId = -1;
+          }
+        }
+      }
+
+      res.json(userId);
+    });
+  });
+
   // Create a new user
   app.post("/api/users", function(req, res) {
     db.User.create(req.body).then(function(dbUser) {
       res.json(dbUser);
     });
   });
-
-  // // Delete a user by id
-  // app.delete("/api/users/:id", function(req, res) {
-  //   db.Users.destroy({ where: { id: req.params.id } }).then(function(
-  //     dbUsers
-  //   ) {
-  //     res.json(dbUsers);
-  //   });
-  // });
 };
