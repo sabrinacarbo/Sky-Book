@@ -26,11 +26,11 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   // Boogie.associate = function(models) {
-  //   Boogies.belongsTo(models.DZ, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-  //   });
+  //   // Boogies.belongsTo(models.DZ, {
+  //   //   foreignKey: {
+  //   //     allowNull: false
+  //   //   }
+  //   // });
   // };
 
   return Boogie;
