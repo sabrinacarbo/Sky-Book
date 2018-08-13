@@ -1,10 +1,10 @@
 // var path = require("path");
 var db = require("../models");
 var express = require("express");
-var router = express.Router();
+var htmlRouter = express.Router();
 
 // Load index page
-router.get("/", function(req, res) {
+htmlRouter.get("/", function(req, res) {
   db.DZ.findAll().then(function(DZs) {
     db.Boogie.findAll().then(function(boogies) {
       res.render("index", {
@@ -16,7 +16,7 @@ router.get("/", function(req, res) {
 });
 
 // Load posts page
-router.get("/posts", function(req, res) {
+htmlRouter.get("/posts", function(req, res) {
   db.Post.findAll().then(function(allPosts) {
     res.render("posts", {
       allPosts: allPosts
@@ -24,7 +24,7 @@ router.get("/posts", function(req, res) {
   });
 });
 
-router.get("/faq", function(req, res) {
+htmlRouter.get("/faq", function(req, res) {
   db.FAQs.findAll().then(function(allFAQs) {
     res.render("faq", {
       allFAQs: allFAQs
@@ -32,7 +32,7 @@ router.get("/faq", function(req, res) {
   });
 });
 
-router.get("/profile/:id", function(req, res) {
+htmlRouter.get("/profile/:id", function(req, res) {
   console.log("/profile/" + req.params.id);
   db.DZ.findAll().then(function(DZs) {
     db.User.findOne({
@@ -54,8 +54,8 @@ router.get("/profile/:id", function(req, res) {
 });
 
 // Render 404 page for any unmatched routes
-router.get("*", function(req, res) {
+htmlRouter.get("*", function(req, res) {
   res.render("404");
 });
 
-module.exports = router;
+module.exports = htmlRouter;

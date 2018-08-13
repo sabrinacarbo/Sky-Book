@@ -12,6 +12,7 @@ var PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
+app.use("/uploads", express.static("uploads"));
 
 // Handlebars
 app.engine(
@@ -23,10 +24,11 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/apiRoutes")(app);
 
-var routes = require("./routes/htmlRoutes");
-app.use(routes);
+var apiRoutes = require("./routes/apiRoutes");
+var htmlRoutes = require("./routes/htmlRoutes");
+app.use(apiRoutes);
+app.use(htmlRoutes);
 
 var syncOptions = { force: false };
 
