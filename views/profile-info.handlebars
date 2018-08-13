@@ -36,7 +36,13 @@
         </div>
         <div class="row">
             <div class="col-sm">
-                <img src={{img}} class="img-fluid" alt="Profile Picture">
+                <!--<img src={{img}} class="img-fluid" alt="Profile Picture">-->
+                <img class="photo photo-img" src={{img}} class="img-fluid" alt="Profile Picture">
+                <label for="image-input">Change your profile image</label>
+                <form id="img_form" action="" method="POST" enctype="multipart/form-data">
+                <input name="img" type="file" id="img-input"/>
+                </form>
+</form>
             </div>
             <div class="col-sm">
                 <p>License: {{license}}</p>

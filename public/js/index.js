@@ -42,9 +42,6 @@ $(document).ready(function() {
     var name = $("#nameInput")
       .val()
       .trim();
-    var img = $("#imageInput")
-      .val()
-      .trim();
     var license = $("#licenseInput")
       .val()
       .trim();
@@ -76,7 +73,6 @@ $(document).ready(function() {
         userName: username,
         password: password,
         name: name,
-        img: img,
         license: license,
         numberOfJump: numberOfJump,
         homeDropZone: homeDropZone,
@@ -122,4 +118,34 @@ $(document).ready(function() {
   var goToUserProfile = function(userId) {
     window.location.href = "/profile/" + userId;
   };
+
+  $("#img-input").on("change", function() {
+    //Try to use "multer" to store img file on server and database....
+    
+    //var form = $("#img_form");
+    //var options = {
+    //  url: "/upload/img",
+    //  type: "post",
+    //  success: function(data) {
+    //   data = JSON.parse(data);
+    //   if (data.code === 0) {
+    //      imgUrl = data.data.url;
+    //   } else {
+    //      alert("Failed to load the image");
+    //    }
+    //  }
+    //};
+    // form.ajaxSubmit(options);
+
+
+    //New technology: Playing with Filelist Object
+    var file = document.getElementById("img-input").files[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var imgFile = e.target.result;
+      $(".photo-img").attr("src", imgFile);
+      $(".photo-img").attr("style", "display:block");
+    };
+    reader.readAsDataURL(file);
+  });
 });
