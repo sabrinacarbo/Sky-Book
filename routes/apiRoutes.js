@@ -5,16 +5,15 @@ var multer = require("multer");
 
 var storage = multer.diskStorage({
   destination: function(req, file, cb) {
-    cb(null, './uploads/');
+    cb(null, "./uploads/");
   },
   filename: function(req, file, cb) {
     cb(null, new Date().toISOString() + file.originalname);
   }
 });
 
-
 var upload = multer({ storage: storage });
-var imgBaseUrl = '../'
+//var imgBaseUrl = "../";
 
 // Get all user info
 apiRouter.get("/api/users", function(req, res) {
@@ -45,42 +44,37 @@ apiRouter.post("/api/login", function(req, res) {
 });
 
 // Create a new user
-apiRouter.post("/api/users", (req, res, next) => {
+apiRouter.post("/api/users", function(req, res) {
   db.User.create({
-    "username": req.body.userName,
-    "password": req.body.password,
-    "name": req.body.name,
-    "license": req.body.license,
-    "numberOfJump": req.body.numberOfJump,
-    "homeDropZone": req.body.homeDropZone,
-    "bio": req.body.bio
-  }).then(function (dbUser) {
+    username: req.body.userName,
+    password: req.body.password,
+    name: req.body.name,
+    license: req.body.license,
+    numberOfJump: req.body.numberOfJump,
+    homeDropZone: req.body.homeDropZone,
+    bio: req.body.bio
+  }).then(function(dbUser) {
     res.json(dbUser);
     console.log(dbUser);
   });
 });
 
-
 //upload img to the server
-apiRouter.post('/upload/img', upload.single('img'), function (req, res) {
-
+apiRouter.post("/upload/img", upload.single("img"), function(req, res) {
   var files = req.file;
- 
-  
+
   var result = {};
-  if(!files) {
+  if (!files) {
     result.code = 1;
     result.errMsg = "Upload Failed";
   } else {
     result.code = 0;
     result.data = {
       url: files.path
-    }
+    };
     result.errMsg = "Upload Success";
   }
   res.end(JSON.stringify(result));
 });
-
-
 
 module.exports = apiRouter;
