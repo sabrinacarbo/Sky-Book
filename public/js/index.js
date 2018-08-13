@@ -121,7 +121,7 @@ $(document).ready(function() {
 
   $("#img-input").on("change", function() {
     //Try to use "multer" to store img file on server and database....
-    
+
     //var form = $("#img_form");
     //var options = {
     //  url: "/upload/img",
@@ -137,7 +137,6 @@ $(document).ready(function() {
     //};
     // form.ajaxSubmit(options);
 
-
     //New technology: Playing with Filelist Object
     var file = document.getElementById("img-input").files[0];
     var reader = new FileReader();
@@ -145,6 +144,7 @@ $(document).ready(function() {
       var imgFile = e.target.result;
       $(".photo-img").attr("src", imgFile);
       $(".photo-img").attr("style", "display:block");
+      $(".photo-img").attr("style", "height: 400px; width: 400px;");
     };
     reader.readAsDataURL(file);
   });
